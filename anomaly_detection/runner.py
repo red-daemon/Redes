@@ -27,4 +27,15 @@ def main():
             std = extractor.scaler.vars.get('latency', 0) ** 0.5 if 'latency' in extractor.scaler.vars else 0
             scaled = features['latency']
             print(f"\n--- Paso {step} ---")
-            pr
+            print(f"Latencia: {latency:.2f} ms")
+            print(f"Latencia escalada: {scaled:.3f}")
+            print(f"Media estimada: {mean:.3f}" if mean else "Media: N/A")
+            print(f"Desviación estándar estimada: {std:.3f}")
+            print(f"Score de anomalía: {score:.3f}")
+            print(f"¿Es anomalía?: {'Sí' if is_anom else 'No'}")
+            print("----------------------\n")
+
+        step += 1
+
+if __name__ == '__main__':
+    main()
